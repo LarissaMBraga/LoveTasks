@@ -1,0 +1,514 @@
+:root {
+  --bg: #0b0d10;
+  --panel: #0f1114;
+  --card: #121214;
+  --muted: #9aa0a6;
+  --accent: #e6007e;
+  --accent-dark: #b10062;
+  --glass: rgba(255, 255, 255, 0.03);
+  --card-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+  --radius: 14px;
+  font-family: Inter, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.habits-page {
+  min-height: 100vh;
+  background: var(--bg);
+  color: #fff;
+}
+
+.habits-header {
+  padding: 28px 20px 14px;
+}
+
+.habits-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.habits-sub {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+.habits-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 20px 10px;
+}
+
+.habit-list {
+  padding: 0 20px 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.habit-card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.01)
+  );
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+.habit-left {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.habit-dot {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+.habit-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.habit-info .title {
+  font-weight: 700;
+  font-size: 16px;
+}
+.habit-info .meta {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.fab {
+  position: fixed;
+  right: 20px;
+  bottom: 86px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(230, 0, 126, 0.28);
+  cursor: pointer;
+  font-size: 26px;
+  border: none;
+}
+
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 72px;
+  background: #0a0a0b;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.habit-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 2000;
+  padding-top: 28px;
+}
+.habit-modal {
+  width: 100%;
+  max-width: 420px;
+  height: calc(100vh - 56px);
+  background: linear-gradient(180deg, #0c0d10, #0a0b0d);
+  border-radius: 18px;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: #fff;
+}
+.habit-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+.habit-modal-header h2 {
+  color: var(--accent);
+  font-size: 22px;
+  margin: 0;
+}
+.habit-modal-close {
+  position: absolute;
+  right: 14px;
+  top: 12px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.habit-modal-body {
+  padding: 18px;
+  flex: 1;
+  overflow: auto;
+}
+
+.habit-modal-footer {
+  padding: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pager-dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.pager-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent;
+}
+.pager-dots .dot.active {
+  background: var(--accent);
+  border-color: var(--accent-dark);
+  box-shadow: 0 3px 8px rgba(230, 0, 126, 0.18);
+}
+
+.btn {
+  padding: 10px 18px;
+  border-radius: 12px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+}
+.btn.ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--muted);
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.cat-item {
+  background: #111;
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.02);
+}
+.cat-item .label {
+  font-weight: 700;
+}
+.cat-color-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+}
+
+.freq-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 6px;
+}
+.freq-option {
+  background: transparent;
+  border-radius: 10px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.weekdays {
+  display: flex;
+  justify-content: flex-start;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.weekdays button {
+  background: transparent;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  color: var(--muted);
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+.weekdays button.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent-dark);
+}
+
+.input,
+.textarea {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  color: #fff;
+  padding: 10px 12px;
+  border-radius: 10px;
+  width: 100%;
+  outline: none;
+}
+.text-muted {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+@media (max-width: 460px) {
+  .habit-modal {
+    max-width: 100%;
+    height: 100vh;
+    border-radius: 0;
+  }
+  .fab {
+    right: 14px;
+    bottom: 90px;
+  }
+}
+
+.days-container {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 10px 16px;
+  gap: 8px;
+}
+
+.days-container::-webkit-scrollbar {
+  display: none;
+}
+
+.day-card {
+  min-width: 50px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background-color: #2a2a2a;
+  color: white;
+  text-align: center;
+  padding: 6px 0;
+  cursor: pointer;
+  transition: background 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.day-card:hover {
+  background-color: #444;
+}
+
+.day-selected {
+  background-color: #c2185b;
+}
+
+.day-label {
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+
+.day-number {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.habit-modal-backdrop {
+  background: rgba(0, 0, 0, 0.7);
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.habit-modal {
+  background: #111;
+  border-radius: 16px;
+  padding: 24px;
+  width: 500px;
+  max-width: 90%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.habit-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.habit-modal input,
+.habit-modal textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #222;
+  color: #fff;
+}
+
+.habit-modal textarea {
+  min-height: 30px;
+}
+
+.habit-day-btn {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #555;
+  background: #222;
+  color: #fff;
+  cursor: pointer;
+  min-width: 40px;
+}
+
+.habit-day-btn.active {
+  background: #ff2d6f;
+  border: 2px solid #ff2d6f;
+}
+
+.habit-modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.habit-modal button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.habit-btn-prev {
+  background: #444;
+  color: #fff;
+}
+
+.habit-btn-next {
+  background: #ff2d6f;
+  color: #fff;
+}
+
+.habit-btn-next.disabled {
+  background: #555;
+  cursor: not-allowed;
+}
+
+.habit-btn-save {
+  background: #00b894;
+  color: #fff;
+}
+
+.habit-frequency-option {
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  background: #222;
+  color: #ccc;
+  transition: background 0.2s;
+}
+
+.habit-frequency-option:hover {
+  background: #ff2d6f;
+}
+
+.react-datepicker-wrapper {
+  width: 90px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.react-time-picker {
+  width: 80px;
+}
+
+.react-time-picker__wrapper {
+  height: 32px;
+  display: block;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+/* calendario ta em branco */
+.datepicker-dark .react-datepicker {
+  background-color: #111;
+  color: #fff;
+  border: 1px solid #333;
+}
+
+.datepicker-dark .react-datepicker__header {
+  background-color: #111;
+  border-bottom: 1px solid #333;
+}
+
+.datepicker-dark .react-datepicker__day-name,
+.datepicker-dark .react-datepicker__day,
+.datepicker-dark .react-datepicker__current-month {
+  color: #fff;
+}
+
+.datepicker-dark .react-datepicker__day:hover {
+  background-color: #ff2d6f;
+  color: #fff;
+}
+
+.datepicker-dark .react-datepicker__day--selected,
+.datepicker-dark .react-datepicker__day--keyboard-selected {
+  background-color: #ff2d6f;
+  color: #fff;
+}
+
+.datepicker-dark .react-datepicker__triangle {
+  display: none;
+}
