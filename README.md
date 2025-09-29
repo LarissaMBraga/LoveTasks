@@ -43,7 +43,7 @@ Feito em **React** e junta duas coisas:
 ## Como rodar o projeto
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/LoveTasks.git
+git clone [https://github.com/LarissaMBraga/LoveTasks.git]
 
 # Entre na pasta
 cd LoveTasks
