@@ -1,6 +1,6 @@
 # LoveTasks
 
-Feito em **React** que junta duas coisas:
+Feito em **React** e junta duas coisas:
 - Previsão do **clima**
 - Controle de **hábitos**
 
@@ -19,7 +19,7 @@ Feito em **React** que junta duas coisas:
 
 ---
 
-## 🔮 Futuras funcionalidades
+## Futuras funcionalidades
 
 - **Bloco de notas intuitivo**  
   Um espaço para organizar ideias, listas e anotações de forma flexível, com páginas editáveis e personalizáveis.
