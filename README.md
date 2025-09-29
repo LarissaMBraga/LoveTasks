@@ -1,4 +1,4 @@
-#LoveTasks
+# LoveTasks
 
 Feito em **React** que junta duas coisas:
 - Previsão do **clima**
@@ -6,7 +6,7 @@ Feito em **React** que junta duas coisas:
 
 ---
 
-## 🚀 Funcionalidades
+## Funcionalidades
 
 ### Clima
 - Buscar previsão do tempo por cidade.
